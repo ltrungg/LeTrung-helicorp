@@ -1,0 +1,129 @@
+/* ── Product Visual ─────────────────────────────────────────────────────── */
+
+.product-visual {
+  position: relative;
+  display: grid;
+  min-height: 520px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 44px;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--color-surface-strong) 72%, transparent),
+      transparent
+    ),
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(167, 243, 208, 0.3),
+      transparent 19rem
+    ),
+    var(--color-surface);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* ── Ring SVG ───────────────────────────────────────────────────────────── */
+
+.product-visual__ring {
+  position: relative;
+  z-index: 2;
+  width: min(88%, 500px);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── Ambient Orbs ──────────────────────────────────────────────────────── */
+
+.product-visual__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.product-visual__orb--one {
+  width: 220px;
+  height: 220px;
+  top: 18%;
+  right: -70px;
+  background: rgba(52, 211, 153, 0.22);
+}
+
+.product-visual__orb--two {
+  width: 180px;
+  height: 180px;
+  bottom: 8%;
+  left: -50px;
+  background: rgba(45, 212, 191, 0.18);
+}
+
+/* ── Metric Cards ──────────────────────────────────────────────────────── */
+
+.product-visual__metric {
+  position: absolute;
+  z-index: 3;
+  min-width: 150px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px var(--space-md);
+  background: color-mix(in srgb, var(--color-bg) 62%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-base);
+  transition: transform var(--transition-base);
+}
+
+.product-visual__metric:hover {
+  transform: scale(1.05);
+}
+
+.product-visual__metric strong {
+  display: block;
+  font-size: var(--font-size-2xl);
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+}
+
+.product-visual__metric span {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.product-visual__metric--sleep {
+  left: 32px;
+  bottom: 54px;
+}
+
+.product-visual__metric--heart {
+  top: 72px;
+  right: 32px;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+
+@media (max-width: 920px) {
+  .product-visual {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-visual {
+    min-height: 340px;
+    border-radius: 30px;
+  }
+
+  .product-visual__metric {
+    min-width: 124px;
+    padding: 12px;
+  }
+
+  .product-visual__metric--sleep {
+    left: 14px;
+    bottom: 24px;
+  }
+
+  .product-visual__metric--heart {
+    top: 24px;
+    right: 14px;
+  }
+}

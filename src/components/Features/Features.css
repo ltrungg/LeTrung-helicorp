@@ -1,0 +1,84 @@
+/* ── Features Section ───────────────────────────────────────────────────── */
+
+.features__heading {
+  max-width: 790px;
+  margin-bottom: var(--space-2xl);
+}
+
+.features__eyebrow {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) 14px;
+  background: var(--color-primary-alpha);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.features__heading p {
+  font-size: var(--font-size-lg);
+}
+
+/* ── Grid ───────────────────────────────────────────────────────────────── */
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+/* ── Card ───────────────────────────────────────────────────────────────── */
+
+.features__card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-base);
+  transition: transform var(--transition-base),
+    border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.features__card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* ── Icon ───────────────────────────────────────────────────────────────── */
+
+.features__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-md);
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-alpha);
+  font-size: 1.4rem;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+
+@media (max-width: 920px) {
+  .features__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features__card {
+    padding: var(--space-lg);
+  }
+}

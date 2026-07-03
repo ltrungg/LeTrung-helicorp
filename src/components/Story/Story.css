@@ -1,0 +1,92 @@
+/* ── Story Section ──────────────────────────────────────────────────────── */
+
+.story {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(16, 185, 129, 0.06),
+    transparent
+  );
+}
+
+.story__layout {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: var(--space-2xl);
+}
+
+.story__sticky {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-xl));
+  align-self: start;
+}
+
+.story__eyebrow {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) 14px;
+  background: var(--color-primary-alpha);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Steps ──────────────────────────────────────────────────────────────── */
+
+.story__steps {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.story__card {
+  min-height: 220px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-base);
+  transition: transform var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.story__card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.story__label {
+  display: block;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-black);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+
+@media (max-width: 920px) {
+  .story__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .story__sticky {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .story__card {
+    padding: var(--space-lg);
+    min-height: auto;
+  }
+}

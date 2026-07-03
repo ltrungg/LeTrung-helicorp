@@ -1,0 +1,134 @@
+/* ── Contact Section ────────────────────────────────────────────────────── */
+
+.contact__layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: var(--space-xl);
+}
+
+/* ── Copy Side ─────────────────────────────────────────────────────────── */
+
+.contact__copy {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-base);
+}
+
+.contact__eyebrow {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) 14px;
+  background: var(--color-primary-alpha);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact__checklist {
+  display: grid;
+  gap: 12px;
+  margin-top: var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.contact__checklist li::before {
+  content: '✓';
+  margin-right: 10px;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-black);
+}
+
+/* ── Form ───────────────────────────────────────────────────────────────── */
+
+.contact__form {
+  display: grid;
+  gap: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-base);
+}
+
+.contact__field {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.contact__field span {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+}
+
+.contact__field input,
+.contact__field select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 15px;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  outline: none;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.contact__field input:focus,
+.contact__field select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-alpha);
+}
+
+.contact__field input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+/* ── Error & Status ────────────────────────────────────────────────────── */
+
+.contact__error {
+  color: var(--color-danger);
+  font-size: var(--font-size-sm);
+}
+
+.contact__message {
+  margin: 0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+}
+
+.contact__message--success {
+  background: var(--color-primary-alpha);
+  color: var(--color-primary);
+}
+
+.contact__message--error {
+  background: rgba(252, 165, 165, 0.15);
+  color: var(--color-danger);
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+
+@media (max-width: 920px) {
+  .contact__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact__copy,
+  .contact__form {
+    padding: var(--space-lg);
+  }
+}
