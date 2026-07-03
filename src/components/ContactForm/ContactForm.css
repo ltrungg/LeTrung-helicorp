@@ -70,8 +70,7 @@
   font-size: var(--font-size-sm);
 }
 
-.contact__field input,
-.contact__field select {
+.contact__field input {
   width: 100%;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -83,14 +82,96 @@
     box-shadow var(--transition-fast);
 }
 
-.contact__field input:focus,
-.contact__field select:focus {
+.contact__field input:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 4px var(--color-primary-alpha);
 }
 
 .contact__field input[aria-invalid='true'] {
   border-color: var(--color-danger);
+}
+
+/* ── Custom Select ──────────────────────────────────────────────────────── */
+
+.custom-select {
+  position: relative;
+}
+
+.custom-select__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 15px;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.custom-select__trigger:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-alpha);
+}
+
+.custom-select__icon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-base);
+}
+
+.custom-select__icon.open {
+  transform: rotate(180deg);
+}
+
+.custom-select__options {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-elevated);
+  
+  /* Animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 250ms ease, transform 250ms ease, visibility 250ms;
+}
+
+.custom-select__options.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-select__options li {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.custom-select__options li:hover,
+.custom-select__options li[aria-selected='true'] {
+  background: var(--color-primary-alpha);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
 }
 
 /* ── Error & Status ────────────────────────────────────────────────────── */

@@ -18,6 +18,7 @@ export function ContactForm() {
   const [formData, setFormData] = useState<ContactFormData>(INITIAL_DATA);
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
 
   const hasWebhook = Boolean(getWebhookUrl());
 
@@ -122,18 +123,50 @@ export function ContactForm() {
             )}
           </label>
 
-          <label className="contact__field">
+          <div className="contact__field">
             <span>Nhu cầu quan tâm</span>
-            <select
-              id="input-interest"
-              value={formData.interest}
-              onChange={(e) => updateField('interest', e.target.value)}
-            >
-              {INTEREST_OPTIONS.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </select>
-          </label>
+            <div className="custom-select">
+              <button
+                type="button"
+                className="custom-select__trigger"
+                onClick={() => setIsSelectOpen((prev) => !prev)}
+                aria-haspopup="listbox"
+                aria-expanded={isSelectOpen}
+              >
+                {formData.interest}
+                <svg
+                  className={`custom-select__icon ${isSelectOpen ? 'open' : ''}`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              
+              <ul
+                className={`custom-select__options ${isSelectOpen ? 'open' : ''}`}
+                role="listbox"
+              >
+                {INTEREST_OPTIONS.map((option) => (
+                  <li
+                    key={option}
+                    role="option"
+                    aria-selected={formData.interest === option}
+                    onClick={() => {
+                      updateField('interest', option);
+                      setIsSelectOpen(false);
+                    }}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
           <button
             className="btn btn--primary btn--full"
