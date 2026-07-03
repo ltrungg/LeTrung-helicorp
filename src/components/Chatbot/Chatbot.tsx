@@ -31,51 +31,50 @@ export function Chatbot() {
 
   return (
     <div className="chatbot" id="chatbot">
-      {isOpen && (
-        <div
-          className="chatbot__window"
-          role="dialog"
-          aria-label="Chatbot tư vấn sản phẩm"
-        >
-          <div className="chatbot__header">
-            <div>
-              <strong>VitaBot</strong>
-              <span>Rule-based demo</span>
-            </div>
+      <div
+        className={`chatbot__window ${isOpen ? 'open' : ''}`}
+        role="dialog"
+        aria-label="Chatbot tư vấn sản phẩm"
+        aria-hidden={!isOpen}
+      >
+        <div className="chatbot__header">
+          <div>
+            <strong>VitaBot</strong>
+            <span>Rule-based demo</span>
+          </div>
+          <button
+            type="button"
+            className="chatbot__close"
+            onClick={() => setIsOpen(false)}
+            aria-label="Đóng chatbot"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="chatbot__messages">
+          {messages.map((msg, idx) => (
+            <p
+              className={`chatbot__bubble chatbot__bubble--${msg.role}`}
+              key={`${msg.role}-${idx}`}
+            >
+              {msg.text}
+            </p>
+          ))}
+        </div>
+
+        <div className="chatbot__quick">
+          {QUICK_QUESTIONS.map((q) => (
             <button
               type="button"
-              className="chatbot__close"
-              onClick={() => setIsOpen(false)}
-              aria-label="Đóng chatbot"
+              key={q.key}
+              onClick={() => ask(q.key, q.label)}
             >
-              ×
+              {q.label}
             </button>
-          </div>
-
-          <div className="chatbot__messages">
-            {messages.map((msg, idx) => (
-              <p
-                className={`chatbot__bubble chatbot__bubble--${msg.role}`}
-                key={`${msg.role}-${idx}`}
-              >
-                {msg.text}
-              </p>
-            ))}
-          </div>
-
-          <div className="chatbot__quick">
-            {QUICK_QUESTIONS.map((q) => (
-              <button
-                type="button"
-                key={q.key}
-                onClick={() => ask(q.key, q.label)}
-              >
-                {q.label}
-              </button>
-            ))}
-          </div>
+          ))}
         </div>
-      )}
+      </div>
 
       <button
         className="chatbot__fab"
