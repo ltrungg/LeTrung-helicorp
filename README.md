@@ -100,17 +100,4 @@ npm run preview
 ```
 
 ---
-
-## 🔗 Cấu hình Webhook (Tuỳ chọn)
-
-Form liên hệ mặc định sẽ chạy ở chế độ **Demo** (lưu dữ liệu vào Console & `localStorage`). Để gửi dữ liệu thật về Webhook:
-
-1. Copy file `.env.example` thành `.env`.
-2. Tạo một endpoint tại [webhook.site](https://webhook.site).
-3. Thêm URL vào file `.env`:
-   ```env
-   VITE_WEBHOOK_URL=https://webhook.site/your-unique-url
-   ```
-
----
 *Bản quyền dự án thuộc về Lê Trung - Phát triển dành riêng cho bài test HeLiCorp 2026.*
