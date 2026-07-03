@@ -4,7 +4,10 @@
   position: fixed;
   right: var(--space-lg);
   bottom: var(--space-lg);
-  z-index: var(--z-modal);
+  z-index: var(--z-modal, 100);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 /* ── FAB ───────────────────────────────────────────────────────────────── */

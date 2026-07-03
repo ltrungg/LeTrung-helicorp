@@ -13,7 +13,7 @@ const INITIAL_MESSAGES: ChatMessage[] = [
 
 /** Floating chatbot widget with rule-based quick answers. */
 export function Chatbot() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [messages, setMessages] = useState<ChatMessage[]>(INITIAL_MESSAGES);
 
   const ask = (key: string, label: string) => {
